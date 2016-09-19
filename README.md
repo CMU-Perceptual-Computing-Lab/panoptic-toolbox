@@ -3,12 +3,8 @@ panopticapi_d
 
 panopticapi shows how to work with the [Panoptic Studio](http://domedb.perception.cs.cmu.edu) (Panoptic) data. 
 
-- Loading camera calibration files 
-- Place no restrictions on the structure of your AMT tasks.
-- Lightweight and easy to understand.
-
 # Quick start guide
-Follow these steps to set up a simple example 
+Follow these steps to set up a simple example: 
 
 ### Check out the codebase
 ```
