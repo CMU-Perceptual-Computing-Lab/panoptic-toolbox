@@ -21,5 +21,5 @@ cd panopticapi_d
 Python example notebook:
 ```
 cd python
-ipython example.ipynb
+jupyter notebook example.ipynb
 ```
