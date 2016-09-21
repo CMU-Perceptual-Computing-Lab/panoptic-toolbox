@@ -10,6 +10,9 @@ frameEnd = 9;
 vga_panelIdx =1;
 vga_camIdx =1;
 
+% Data is kept in json format
+addpath('jsonlab');
+
 %% Load body pose data
 poseData = PoseLoaderJson(vgaPoseDir,frameStart,frameEnd); % poseData{idx} contains skeletons per frame
 
@@ -29,7 +32,8 @@ end
 % targetCam.distCoef(5) = buf;
 %% Projection on a image
 frameIdx = poseData{1}.frameIdx;    %Just use the first frame of the loaded poseData
-imPath = sprintf('%s/%02d_%02d/%08d.png',vgaImgDir,vga_panelIdx,vga_camIdx,frameIdx);
+imPath = sprintf('%s/%02d_%02d/%02d_%02d_%08d.png',vgaImgDir,...
+				 vga_panelIdx,vga_camIdx,vga_panelIdx,vga_camIdx,frameIdx);
 im = imread(imPath);
 
 pose2D={};
@@ -38,5 +42,9 @@ for i=1:length(poseData{1}.bodies);
 end
 Visualize2DProjection(im,pose2D);
 
+saveas(gcf, 'example_projection.jpg');
+
 %% Visualize body pose data in 3D
 Visualize3DPose(poseData);
+
+saveas(gcf, 'example_3d.jpg');

@@ -7,7 +7,7 @@ if(length(poseData)==0)
     return;
 end
 
-hFig= figure, clc, hold on;
+hFig= figure; hold on;
 cc=hsv(maxSkelVisNum);
 set(hFig, 'Position', [500 100 900 600]);
 title('3D viewer');
@@ -15,7 +15,7 @@ BoneJointOrder = { [2 1 3] ...   %{headtop, neck, bodyCenter}
                     , [1 4 5 6] ... %{neck, leftShoulder, leftArm, leftWrist}
                     , [3 7 8 9] ...  %{neck, leftHip, leftKnee, leftAnkle}
                     , [1 10 11 12]  ... %{neck, rightShoulder, rightArm, rightWrist}
-                    , [3 13 14 15]}     %{neck, rightHip, rightKnee, rightAnkle}
+                    , [3 13 14 15]};    %{neck, rightHip, rightKnee, rightAnkle}
 
 
 skeletonDraw ={};   %Draw unit for each humann. 

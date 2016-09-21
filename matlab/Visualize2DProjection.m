@@ -11,7 +11,7 @@ BoneJointOrder = { [2 1 3] ...   %{headtop, neck, bodyCenter}
                     , [1 4 5 6] ... %{neck, leftShoulder, leftArm, leftWrist}
                     , [3 7 8 9] ...  %{neck, leftHip, leftKnee, leftAnkle}
                     , [1 10 11 12]  ... %{neck, rightShoulder, rightArm, rightWrist}
-                    , [3 13 14 15]}     %{neck, rightHip, rightKnee, rightAnkle}
+                    , [3 13 14 15]};    %{neck, rightHip, rightKnee, rightAnkle}
 
 imshow(im);
 hold on;
