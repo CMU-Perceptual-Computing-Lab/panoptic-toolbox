@@ -40,7 +40,7 @@ chmod +x hdImgsExtractor.sh
 $WGET $mO calibration_${datasetName}.json http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/calibration_${datasetName}.json
 
 # Download 3D pose reconstruction results (by vga index)
-$WGET http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/vgaPose3d_stage1.zip
+$WGET http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/vgaPose3d_stage1.tar
 
 ######################
 # Download vga videos
