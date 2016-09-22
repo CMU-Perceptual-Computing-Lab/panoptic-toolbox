@@ -28,14 +28,6 @@ fi
 mkdir $datasetName		
 cd $datasetName
 
-# Download vgaImage extractor script
-$WGET http://domedb.perception.cs.cmu.edu/webdata/scripts/vgaImgsExtractor.sh
-chmod +x vgaImgsExtractor.sh
-
-# Download hdImage extractor script
-$WGET http://domedb.perception.cs.cmu.edu/webdata/scripts/hdImgsExtractor.sh
-chmod +x hdImgsExtractor.sh
-
 # Download calibration data
 $WGET $mO calibration_${datasetName}.json http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/calibration_${datasetName}.json
 
@@ -54,22 +46,24 @@ panels=(1 19 14 6 16 9 5 10 18 15 3 8 4 20 11 13 7 2 17 12 9 5 6 3 15 2 12 14 16
 nodes=(1 14 3 15 12 12 8 6 13 12 12 17 7 17 21 17 4 6 12 18 2 18 5 4 2 17 12 10 18 8 18 5 10 10 17 1 18 7 12 9 13 5 6 18 16 9 16 8 8 10 21 22 16 16 21 16 14 6 14 11 11 20 4 22 4 22 20 19 15 15 15 12 2 2 3 3 20 22 5 9 3 16 23 22 20 8 8 9 2 16 14 16 16 14 1 13 16 12 10 15 18 6 13 10 7 10 4 1 7 21 8 6 4 7 9 10 11 8 4 6 10 4 5 6 21 21 6 6 19 20 20 20 14 19 22 22 23 19 9 15 23 23 23 23 19 2 8 2 8 19 19 23 23 19 19 23 24 24 2 14 12 2 12 14 12 2 14 15 11 6 6 21 4 5 5 4 2 10 5 10 7 3 7 9 8 9 3 7 9 9 7 2 5 5 5 5 7 8 8 4 7 11 9 7 5 3 5 7 6 8 9 8 7 8 8 3 8 7 6 11 7 2 9 9 2 11 12 7 4 6 6 7 4 4 9 18 1 5 6 5 10 11 5 9 6 11 12 1 10 11 6 9 7 11 5 1 2 12 11 11 3 3 21 11 10 2 3 10 11 19 5 11 13 12 20 13 3 5 9 11 8 4 6 4 7 12 10 8 11 19 14 23 10 1 3 12 4 3 10 9 2 3 20 4 11 2 20 20 2 23 10 3 22 22 1 12 12 21 4 22 23 22 18 10 18 22 11 3 18 13 18 3 3 13 2 1 3 20 20 4 20 14 14 20 20 14 14 22 18 21 20 22 20 22 9 22 21 21 22 21 22 20 21 21 21 21 23 17 21 13 20 13 13 15 17 1 23 23 23 18 13 16 15 19 17 17 22 21 17 14 1 13 13 14 14 16 19 17 18 1 13 18 24 19 16 13 18 18 15 23 17 14 19 17 1 19 13 19 1 15 17 13 23 13 19 24 15 15 19 15 17 1 16 24 21 23 14 24 15 24 24 1 16 15 24 1 17 17 15 24 1 16 16 19 13 15 22 24 23 17 16 18 1 24 24 24 17 24 24 17 16 24 14 15 16 15 24 24 24 18)
 for (( c=0; c<$numVGAViews; c++))
 do
-	cmd=$(printf "$WGET $mO vgaVideos/vga_%02d_%02d.mp4 http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/videos/vga_shared_crf10/ve%02d_%02d.mp4" ${panels[c]} ${nodes[c]} ${panels[c]} ${nodes[c]})
+	cmd=$(printf "$WGET $mO vgaVideos/vga_%02d_%02d.mp4 http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/videos/vga_shared_crf10/vga_%02d_%02d.mp4" ${panels[c]} ${nodes[c]} ${panels[c]} ${nodes[c]})
 	eval $cmd
 done
+
+# Download 3D pose reconstruction results (by hd index)
+$WGET http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/hdPose3d_stage1.tar
 
 #####################
 # Download hd videos
 #####################
 mkdir -p hdVideos
-panels=(31 31 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 41 42 42 43 43 44 44 45 45 46 46)
-nodes=(1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2 1)
+panel=0
+nodes=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30)
 for (( c=0; c<$numHDViews; c++))
 do
-	cmd=$(printf "$WGET $mO hdVideos/hd_%02d-%d.mp4 http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/videos/hd_shared_crf20/ve%02d-%d.mp4" ${panels[c]} ${nodes[c]} ${panels[c]} ${nodes[c]})
+	cmd=$(printf "$WGET $mO hdVideos/hd_%02d_%02d.mp4 http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/videos/hd_shared_crf20/hd_%02d_%02d.mp4" ${panel} ${nodes[c]} ${panel} ${nodes[c]})
 	eval $cmd
 done
 
-# Download 3D pose reconstruction results (by hd index)
 # Download kinect-rgb videos
 # Download point cloud data
