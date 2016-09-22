@@ -13,13 +13,30 @@ cd panopticapi_d
 ```
 
 ### Download the sample data 
+This step requires curl or wget.
 ```
-./get_sampleData.sh
+./getData.sh sampleData
+```
+
+### Extract the images & skeleton data 
+This step requires [ffmpeg](https://ffmpeg.org/). 
+```
+cd sampleData
+./vgaImgsExtractor.sh
+./hdImgsExtractor.sh
+tar -xf vgaPose3d_stage1.tar
+cd ..
 ```
 
 ### Run the examples
-Python example notebook:
+Python example notebook (requires numpy, jupyter):
 ```
 cd python
 jupyter notebook example.ipynb
+```
+
+Matlab example:
+```
+>>> cd matlab 
+>>> demo
 ```
