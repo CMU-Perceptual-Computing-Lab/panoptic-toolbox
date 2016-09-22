@@ -6,43 +6,42 @@ This repository shows how to work with the [Panoptic Studio](http://domedb.perce
 ## Quick start guide
 Follow these steps to set up a simple example:
 
-### Check out the codebase
+### 1. Check out the codebase
 ```
 git clone https://github.com/hanbyulj/panopticapi_d
 cd panopticapi_d
 ```
 
-### Download the sample data
+### 2. Download the sample data
 This bash script requires curl or wget.
 ```
 ./scripts/getData.sh sampleData
 ```
 
-### Extract the images & skeleton data
+### 3. Extract the images & skeleton data
 This step requires [ffmpeg](https://ffmpeg.org/).
 ```
 ./scripts/extractAll.sh sampleData
 ```
-The above command is a convenience script that combines the following set of commands:
-```
+This will extract images, for example `sampleData/vgaImgs/01_01/01_01_00000000.png`, and the corresponding 3D skeleton data, for example `sampleData/vgaPose3d_stage1/body3DScene_00000000.json`.
+
+`extractAll.sh` is a simple script that combines the following set of commands (you shouldn't need to run these again):
+```bash
 cd sampleData
-../scripts/vgaImgsExtractor.sh
-../scripts/hdImgsExtractor.sh
-tar -xf vgaPose3d_stage1.tar
-tar -xf hdPose3d_stage1.tar
+../scripts/vgaImgsExtractor.sh # PNG files from VGA video (25 fps)
+../scripts/hdImgsExtractor.sh # PNG files from HD video (29.97 fps)
+tar -xf vgaPose3d_stage1.tar # Extract skeletons at VGA framerate
+tar -xf hdPose3d_stage1.tar # Extract skeletons for HD
 cd ..
 ```
 
-### Run the examples
+### 4. Run the examples
 Python examples (require numpy, matplotlib):
 ```
 cd python
 jupyter notebook example.ipynb
 ```
-or, to show frame `100` from camera `01_02`,
-```
-python python/show_frame.py ./sampleData 01_02 100
-```
+The result should look like [this](https://github.com/CMU-Perceptual-Computing-Lab/panopticapi_d/blob/master/python/example.ipynb).
 
 Matlab example:
 ```matlab
