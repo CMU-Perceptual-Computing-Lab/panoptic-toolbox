@@ -8,8 +8,8 @@ Follow these steps to set up a simple example:
 
 ### 1. Check out the codebase
 ```
-git clone https://github.com/hanbyulj/panopticapi_d
-cd panopticapi_d
+git clone https://github.com/hanbyulj/panopticapi-toolbox
+cd panoptic-toolbox
 ```
 
 ### 2. Download the sample data
