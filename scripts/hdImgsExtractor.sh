@@ -1,8 +1,12 @@
 # !/bin/bash
-# This extracts PNG files from HD videos
+# This extracts image files from HD videos
 # It should be run from the same directory containing the folder "hdVideos"
 # (E.g., sampleData/ )
+# It takes an optional parameter specifying the output format (png or jpg)
 # See http://domedb.perception.cs.cmu.edu
+
+fmt=${1-jpg}
+
 
 inputFolderName=hdVideos
 outputFolderName=hdImgs
@@ -17,8 +21,8 @@ for p in 0
 		
 			mkdir -pv $outputvideoFileName
 			echo "Generate Images from $videoFileName"
-			fileName=$(printf "$outputvideoFileName/%02d_%02d_%%08d.png" $p $c) 
-			ffmpeg -i $videoFileName -an -f image2 -start_number 0 "$fileName"
+			fileName=$(printf "$outputvideoFileName/%02d_%02d_%%08d.${fmt}" $p $c) 
+			ffmpeg -i $videoFileName -q:v 1 -f image2 -start_number 0 "$fileName"
 		else
 			echo "$videoFileName (Skipping.)"
 		fi

@@ -4,7 +4,7 @@ This example projects skeletons onto a camera and writes the resulting image, e.
 python show_frame.py ../sampleData/ 1 1 0
 
 will project skeletons on camera with panel 1, node 1, ("01_01") and frame number 0,
-producing a file sampleData_01_01_00000000.png
+producing a file sampleData_01_01_00000000.jpg
 
 This software is provided for research purposes only.
 More information here: http://domedb.perception.cs.cmu.edu
@@ -46,7 +46,7 @@ def load_image( data_path, panel, node, frame_index ):
 
     prefix = "hd" if panel==0 else "vga"
     img_path = data_path+'/{0}Imgs/'.format(prefix)
-    img_fname = img_path+'{0:02d}_{1:02d}/{0:02d}_{1:02d}_{2:08d}.png'.format(panel, node, frame_index)
+    img_fname = img_path+'{0:02d}_{1:02d}/{0:02d}_{1:02d}_{2:08d}.jpg'.format(panel, node, frame_index)
 
     im = cv2.imread(img_fname)
     if im is None:
@@ -130,7 +130,7 @@ def main():
     draw_skeletons(im, bframe, cameras[(panel,node)])
 
     if outputfile is None:
-        outputfile = '{3}_{0:02d}_{1:02d}_{2:08d}.png'.format(panel,node,frame,seq_name)
+        outputfile = '{3}_{0:02d}_{1:02d}_{2:08d}.jpg'.format(panel,node,frame,seq_name)
     print('Writing {0}'.format(outputfile))
     cv2.imwrite(outputfile, im)
 
