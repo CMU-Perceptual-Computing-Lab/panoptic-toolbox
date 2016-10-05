@@ -8,7 +8,7 @@ Follow these steps to set up a simple example:
 
 ### 1. Check out the codebase
 ```
-git clone https://github.com/hanbyulj/panoptic-toolbox
+git clone https://github.com/CMU-Perceptual-Computing-Lab/panoptic-toolbox
 cd panoptic-toolbox
 ```
 
