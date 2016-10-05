@@ -32,7 +32,7 @@ end
 % targetCam.distCoef(5) = buf;
 %% Projection on a image
 frameIdx = poseData{1}.frameIdx;    %Just use the first frame of the loaded poseData
-imPath = sprintf('%s/%02d_%02d/%02d_%02d_%08d.png',vgaImgDir,...
+imPath = sprintf('%s/%02d_%02d/%02d_%02d_%08d.jpg',vgaImgDir,...
 				 vga_panelIdx,vga_camIdx,vga_panelIdx,vga_camIdx,frameIdx);
 im = imread(imPath);
 
