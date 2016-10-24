@@ -1,6 +1,13 @@
 function [pt] = PoseProject2D(pts, cam, bApplyDistort)
+% [pt] = PoseProject2D(pts, cam, bApplyDistort)
+% pts - Nx3 points
+% cam - camera structure, with R, t, distCoef fields
+% bApplyDistort - apply distortion flag
+%
+% Returns
+% pt - Nx2 projected points
 
-x = bsxfun(@plus, cam.R * pts, cam.t(:));
+x = bsxfun(@plus, cam.R * pts', cam.t(:));
 xp = bsxfun(@rdivide, x(1:2,:), x(3,:));
 
 %Apply distortion

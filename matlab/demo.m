@@ -38,7 +38,7 @@ im = imread(imPath);
 
 pose2D={};
 for i=1:length(poseData{1}.bodies);
-    pose2D{i} = PoseProject2D(poseData{1}.bodies{i},targetCam,true);
+    pose2D{i} = PoseProject2D(poseData{1}.bodies{i}.joints15,targetCam,true);
 end
 Visualize2DProjection(im,pose2D);
 
