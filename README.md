@@ -18,6 +18,24 @@ This bash script requires curl or wget.
 ./scripts/getData.sh sampleData
 ```
 
+You can also download other seqeunce using the same script by using the name of the target sequence. 
+```
+./scripts/getData.sh 160422_ultimatum
+```
+
+You can also specify the number of videos you want to donwload. 
+```
+./scripts/getData.sh sampleData (VGA_Video_Number) (HD_Video_Number)
+```
+
+For example, the following command will download 240 vga videos and 10 videos.  
+```
+./scripts/getData.sh sampleData (240) (10)
+```
+
+Note that we have sorted the VGA camera order so that you download uniformly distributed view. 
+
+
 ### 3. Extract the images & skeleton data
 This step requires [ffmpeg](https://ffmpeg.org/).
 ```
