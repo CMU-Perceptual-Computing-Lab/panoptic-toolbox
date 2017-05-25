@@ -30,7 +30,7 @@ You can also specify the number of videos you want to donwload.
 
 For example, the following command will download 240 vga videos and 10 videos.  
 ```
-./scripts/getData.sh sampleData (240) (10)
+./scripts/getData.sh sampleData 240 10
 ```
 
 Note that we have sorted the VGA camera order so that you download uniformly distributed view. 
