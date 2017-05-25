@@ -8,8 +8,8 @@
 # 
 
 datasetName=${1-sampleData}
-numVGAViews=${2-10} #Specify the number of vga views you want to donwload. Up to 480
-numHDViews=${3-1} #Specify the number of hd views you want to donwload. Up to 31
+numVGAViews=${2-1} #Specify the number of vga views you want to donwload. Up to 480
+numHDViews=${3-10} #Specify the number of hd views you want to donwload. Up to 31
 
 # Select wget or curl, with appropriate options
 if command -v wget >/dev/null 2>&1; then 
@@ -53,6 +53,9 @@ done
 # Download 3D pose reconstruction results (by hd index)
 $WGET http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/hdPose3d_stage1.tar
 
+# Coco19
+$WGET http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/hdPose3d_stage1_coco19.tar
+
 #####################
 # Download hd videos
 #####################
@@ -61,7 +64,10 @@ panel=0
 nodes=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30)
 for (( c=0; c<$numHDViews; c++))
 do
-	cmd=$(printf "$WGET $mO hdVideos/hd_%02d_%02d.mp4 http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/videos/hd_shared_crf20/hd_%02d_%02d.mp4" ${panel} ${nodes[c]} ${panel} ${nodes[c]})
+  fileName=$(printf "hdVideos/hd_%02d_%02d.mp4" ${panel} ${nodes[c]})
+  echo $fileName;
+  #Download and delete if the file is blank
+	cmd=$(printf "$WGET $mO hdVideos/hd_%02d_%02d.mp4 http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/videos/hd_shared_crf20/hd_%02d_%02d.mp4 || rm -v $fileName" ${panel} ${nodes[c]} ${panel} ${nodes[c]})
 	eval $cmd
 done
 
