@@ -18,7 +18,7 @@ This bash script requires curl or wget.
 ./scripts/getData.sh sampleData
 ```
 
-You can also download other seqeunce using the same script by using the name of the target sequence. 
+You can also download any other seqeunce through this script. Just use the the name of the target sequence instead of the "sampleData". 
 ```
 ./scripts/getData.sh 160422_ultimatum
 ```
