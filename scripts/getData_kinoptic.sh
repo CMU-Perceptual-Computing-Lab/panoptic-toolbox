@@ -27,6 +27,9 @@ fi
 mkdir $datasetName		
 cd $datasetName
 
+# Download panoptic calibration data
+$WGET $mO calibration_${datasetName}.json http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/calibration_${datasetName}.json
+
 # Download kcalibration data
 $WGET $mO kcalibration_${datasetName}.json http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/kinect_shared_depth/kcalibration_${datasetName}.json
 
