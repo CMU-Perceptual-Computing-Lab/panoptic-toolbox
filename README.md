@@ -111,3 +111,14 @@ matlab ./matlab/demo_kinoptic_gen_ptcloud.m
 ```
 
 Note that you should set your "root_path" and "seqName" in this demo file. 
+
+
+
+### 4. Run demo to project point clouds on a HD view
+
+```
+matlab ./matlab/demo_kinoptic_projection.m
+```
+
+Similarly, note that you should set your "root_path" and "seqName" in this demo file. 
+
