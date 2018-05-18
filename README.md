@@ -75,7 +75,7 @@ Kinoptic Studio is a subsystem of Panoptic Studio, which is composed of 10 Kinec
 
 Kinoptic Studio can be independently used from the Panoptic Studio.
 
-See our [tutorial page](http://domedb.perception.cs.cmu.edu/tutorials/cvpr17/index.html) for more details about calibration and synchronization.
+See our [PtCloudDB document](http://domedb.perception.cs.cmu.edu/ptclouddb.html) for more details
 
 ## Quick start guide
 Follow these steps to set up a simple example:
@@ -121,4 +121,14 @@ matlab ./matlab/demo_kinoptic_projection.m
 ```
 
 Similarly, note that you should set your "root_path" and "seqName" in this demo file. 
+
+
+## Panoptic 3D PointCloud DB ver.1
+You can download all sequences included in our [3D PointCloud DB ver.1](https://docs.google.com/spreadsheets/d/1MsD9ioWBToHWz0E33gzFS5nDDjVHRECE2bZ1vM1ff_I/edit?usp=sharing) using the following script:
+
+```
+./scripts/getDB_ptCloud_ver1.sh
+```
+
+
 
