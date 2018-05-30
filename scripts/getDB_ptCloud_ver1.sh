@@ -17,11 +17,11 @@ $curPath/getData_kinoptic.sh 171026_pose3
 $curPath/getData_kinoptic.sh 171026_cello1
 $curPath/getData_kinoptic.sh 171026_cello2
 $curPath/getData_kinoptic.sh 171026_cello3
-$curPath/getData_kinoptic.sh 171026_flute1
-$curPath/getData_kinoptic.sh 171026_piano1
-$curPath/getData_kinoptic.sh 171026_piano2
-$curPath/getData_kinoptic.sh 171026_piano3
-$curPath/getData_kinoptic.sh 171026_piano4
+$curPath/getData_kinoptic.sh 161029_flute1
+$curPath/getData_kinoptic.sh 161029_piano1
+$curPath/getData_kinoptic.sh 161029_piano2
+$curPath/getData_kinoptic.sh 161029_piano3
+$curPath/getData_kinoptic.sh 161029_piano4
 $curPath/getData_kinoptic.sh 160906_band1
 $curPath/getData_kinoptic.sh 160906_band2
 $curPath/getData_kinoptic.sh 160906_band3
@@ -67,6 +67,6 @@ $curPath/getData_kinoptic.sh 160401_ian1
 
 #Others sequences
 $curPath/getData_kinoptic.sh 170915_office1
-$curPath/getData_kinoptic.sh 170915_office2
+$curPath/getData_kinoptic.sh 170407_office2
 $curPath/getData_kinoptic.sh 160906_pizza1
 
