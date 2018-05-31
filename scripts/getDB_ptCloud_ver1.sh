@@ -27,7 +27,6 @@ $curPath/getData_kinoptic.sh 160906_band2
 $curPath/getData_kinoptic.sh 160906_band3
 
 #SocialGame sequences
-$curPath/getData_kinoptic.sh 161202_ultimatum1
 $curPath/getData_kinoptic.sh 160422_ultimatum1
 $curPath/getData_kinoptic.sh 160226_ultimatum1
 $curPath/getData_kinoptic.sh 160224_ultimatum1
@@ -37,7 +36,6 @@ $curPath/getData_kinoptic.sh 160226_mafia1
 $curPath/getData_kinoptic.sh 160226_mafia2
 $curPath/getData_kinoptic.sh 160224_mafia1
 $curPath/getData_kinoptic.sh 160224_mafia2
-$curPath/getData_kinoptic.sh 161202_haggling1
 $curPath/getData_kinoptic.sh 160422_haggling1
 $curPath/getData_kinoptic.sh 160226_haggling1
 $curPath/getData_kinoptic.sh 160224_haggling1
