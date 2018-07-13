@@ -12,36 +12,59 @@ git clone https://github.com/CMU-Perceptual-Computing-Lab/panoptic-toolbox
 cd panoptic-toolbox
 ```
 
-### 2. Download the sample data
-This bash script requires curl or wget.
+### 2. Download a sample data
+To download a dataset, named "171204_pose1_sample" in this example, run the following script.
 ```
-./scripts/getData.sh sampleData
+./scripts/getData.sh 171204_pose1_sample
 ```
 
-You can also download any other seqeunce through this script. Just use the the name of the target sequence instead of the "sampleData". 
+This bash script requires curl or wget. 
+
+
+This script will create a folder "./171204_pose1_sample" and download the following files.
+
+* 171204_pose1_sample/hdVideos/hd_00_XX.mp4  #synchronized HD video files (31 views)
+* 171204_pose1_sample/vgaVideos/KINECTNODE%d/vga_XX_XX.mp4 #synchrponized VGA video files (480 views)
+* 171204_pose1_sample/calibration_171204_pose1_sample.json #calibration files
+* 171204_pose1_sample/hdPose3d_stage1_coco19.tar #3D Body Keypoint Data (coco19 keypoint definition)
+* 171204_pose1_sample/hdFace3d.tar #3D Face Keypoint Data 
+* 171204_pose1_sample/hdHand3d.tar #3D Hand Keypoint Data 
+
+
+You can also download any other seqeunce through this script. Just use the the name of the target sequence instead of the "171204_pose1_sample". 
+
+For example, 
+
 ```
-./scripts/getData.sh 160422_ultimatum
+./scripts/getData.sh 171204_pose1
 ```
+
+for the full version of [171204_pose1](http://domedb.perception.cs.cmu.edu/171204_pose1.html) sequence.
+
+You may find the names of other sequences in our website:
+
+[Browsing dataset](http://domedb.perception.cs.cmu.edu/dataset.html).
 
 You can also specify the number of videos you want to donwload. 
 ```
-./scripts/getData.sh sampleData (VGA_Video_Number) (HD_Video_Number)
+./scripts/getData.sh (sequenceName) (VGA_Video_Number) (HD_Video_Number)
 ```
 
 For example, the following command will download 240 vga videos and 10 videos.  
 ```
-./scripts/getData.sh sampleData 240 10
+./scripts/getData.sh 171204_pose1_sample 240 10
 ```
 
 Note that we have sorted the VGA camera order so that you download uniformly distributed view. 
 
 
-### 3. Extract the images & skeleton data
+### 3. Extract the images & 3D keypoint data
+
 This step requires [ffmpeg](https://ffmpeg.org/).
 ```
 ./scripts/extractAll.sh sampleData
 ```
-This will extract images, for example `sampleData/vgaImgs/01_01/01_01_00000000.png`, and the corresponding 3D skeleton data, for example `sampleData/vgaPose3d_stage1/body3DScene_00000000.json`.
+This will extract images, for example `sampleData/vgaImgs/01_01/01_01_00000000.jpg`, and the corresponding 3D skeleton data, for example `sampleData/vgaPose3d_stage1/body3DScene_00000000.json`.
 
 `extractAll.sh` is a simple script that combines the following set of commands (you shouldn't need to run these again):
 ```bash
@@ -53,20 +76,39 @@ tar -xf hdPose3d_stage1.tar # Extract skeletons for HD
 cd ..
 ```
 
-### 4. Run the examples
-Python examples (require numpy, matplotlib):
+### 4. Run demo programs (Python)
+This codes require numpy, matplotlib.
+
+
+Visualizing 3D keypoints (body, face, hand):
+
 ```
 cd python
-jupyter notebook example.ipynb
+jupyter notebook demo_3Dkeypoints_3dview.ipynb
 ```
-The result should look like [this](https://github.com/CMU-Perceptual-Computing-Lab/panopticapi_d/blob/master/python/example.ipynb).
+The result should look like [this](https://github.com/CMU-Perceptual-Computing-Lab/panopticapi_d/blob/master/python/demo_3Dkeypoints_3dview.ipynb).
 
-Matlab example:
+
+Reprojecting 3D keypoints (body, face, hand) on a selected HD view:
+
+```
+cd python
+jupyter notebook demo_3Dkeypoints_reprojection_hd.ipynb
+```
+The result should look like [this](https://github.com/CMU-Perceptual-Computing-Lab/panopticapi_d/blob/master/python/demo_3Dkeypoints_reprojection_hd.ipynb).
+
+
+
+### 4. Run demo programs (Matlab)
+
+Note: Matlab code is outdated, and does not handle 3D keypoint outputs (coco19 body, face, hand). 
+Please see this code only for reference. We will update this later.
+
+Matlab example (outdated):
 ```matlab
 >>> cd matlab
 >>> demo
 ```
-
 
 KinopticStudio Toolbox
 ======================
