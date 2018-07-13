@@ -11,9 +11,10 @@ fmt=${1-jpg}
 inputFolderName=vgaVideos
 outputFolderName=vgaImgs
 
-for p in {1..20}
+# older version bash compatibility, for version greater than 4.1, it can be for p in {1..20}
+for p in $(seq 1 20)
 	do
-	for c in {1..24}
+	for c in $(seq 1 24)
 		do
 		videoFileName=$(printf "$inputFolderName/vga_%02d_%02d.mp4" $p $c)
 		outputvideoFileName=$(printf "$outputFolderName/%02d_%02d" $p $c)

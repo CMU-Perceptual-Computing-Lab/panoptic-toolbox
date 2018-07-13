@@ -13,7 +13,7 @@ outputFolderName=hdImgs
 camIdx=-1;
 for p in 0
 	do
-	for c in {0..30}
+	for c in $(seq 0 30)
 		do
 		videoFileName=$(printf "$inputFolderName/hd_%02d_%02d.mp4" $p $c)
 		outputvideoFileName=$(printf "$outputFolderName/%02d_%02d" $p $c)
