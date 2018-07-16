@@ -172,5 +172,32 @@ You can download all sequences included in our [3D PointCloud DB ver.1](https://
 ./scripts/getDB_ptCloud_ver1.sh
 ```
 
+## License
+
+Panoptic Studio Dataset is freely available for free non-commercial use. 
+
+
+## References
+
+By using the dataset, you agree to cite at least one of the following papers. 
+
+@InProceedings{Joo_2015_ICCV,
+author = {Joo, Hanbyul and Liu, Hao and Tan, Lei and Gui, Lin and Nabbe, Bart and Matthews, Iain and Kanade, Takeo and Nobuhara, Shohei and Sheikh, Yaser},
+title = {Panoptic Studio: A Massively Multiview System for Social Motion Capture},
+booktitle = {ICCV},
+year = {2015} }
+
+@article{Joo_2017_TPAMI,
+title={Panoptic Studio: A Massively Multiview System for Social Interaction Capture},
+author={Joo, Hanbyul and Simon, Tomas and Li, Xulong and Liu, Hao and Tan, Lei and Gui, Lin and Banerjee, Sean and Godisart, Timothy Scott and Nabbe, Bart and Matthews, Iain and Kanade, Takeo and Nobuhara, Shohei and Sheikh, Yaser},
+journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+year={2017} }
+
+@article{Simon_2017_CVPR,
+title={Hand Keypoint Detection in Single Images using Multiview Bootstrapping},
+author={Simon, Tomas and Joo, Hanbyul and Sheikh, Yaser},
+journal={CVPR},
+year={2017} }
+
 
 
