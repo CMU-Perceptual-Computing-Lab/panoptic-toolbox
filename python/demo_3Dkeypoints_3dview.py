@@ -4,9 +4,6 @@ import matplotlib.pyplot as plt
 #%matplotlib inline
 plt.rcParams['image.interpolation'] = 'nearest'
 
-# For camera projection (with distortion)
-import panutils
-
 # Setup paths
 data_path = '../'
 seq_name = '171204_pose1_sample'
