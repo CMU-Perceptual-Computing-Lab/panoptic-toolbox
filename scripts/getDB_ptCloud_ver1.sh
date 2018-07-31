@@ -13,7 +13,7 @@ $curPath/getData_kinoptic.sh 171026_pose1
 $curPath/getData_kinoptic.sh 171026_pose2
 $curPath/getData_kinoptic.sh 171026_pose3
 
-<<<<<<< HEAD
+#Musical Instruments
 $curPath/getData_kinoptic.sh 171026_cello1
 $curPath/getData_kinoptic.sh 171026_cello2
 $curPath/getData_kinoptic.sh 171026_cello3
