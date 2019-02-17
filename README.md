@@ -12,13 +12,13 @@ git clone https://github.com/CMU-Perceptual-Computing-Lab/panoptic-toolbox
 cd panoptic-toolbox
 ```
 
-### 2. Download a sample data
+### 2. Download a sample data and other data
 To download a dataset, named "171204_pose1_sample" in this example, run the following script.
 ```
 ./scripts/getData.sh 171204_pose1_sample
 ```
 
-This bash script requires curl or wget. 
+This bash script requires curl or wget.
 
 
 This script will create a folder "./171204_pose1_sample" and download the following files.
@@ -30,6 +30,7 @@ This script will create a folder "./171204_pose1_sample" and download the follow
 * 171204_pose1_sample/hdFace3d.tar #3D Face Keypoint Data 
 * 171204_pose1_sample/hdHand3d.tar #3D Hand Keypoint Data 
 
+Note that this sample example currently does not have VGA videos.
 
 You can also download any other seqeunce through this script. Just use the the name of the target sequence instead of the "171204_pose1_sample". 
 
@@ -62,13 +63,13 @@ Note that we have sorted the VGA camera order so that you download uniformly dis
 
 This step requires [ffmpeg](https://ffmpeg.org/).
 ```
-./scripts/extractAll.sh sampleData
+./scripts/extractAll.sh 171204_pose1_sample
 ```
-This will extract images, for example `sampleData/vgaImgs/01_01/01_01_00000000.jpg`, and the corresponding 3D skeleton data, for example `sampleData/vgaPose3d_stage1/body3DScene_00000000.json`.
+This will extract images, for example `171204_pose1_sample/hdImgs/00_00/00_00_00000000.jpg`, and the corresponding 3D skeleton data, for example `171204_pose1_sample/hdPose3d_stage1_coco19/body3DScene_00000000.json`.
 
 `extractAll.sh` is a simple script that combines the following set of commands (you shouldn't need to run these again):
 ```bash
-cd sampleData
+cd 171204_pose1_sample
 ../scripts/vgaImgsExtractor.sh # PNG files from VGA video (25 fps)
 ../scripts/hdImgsExtractor.sh # PNG files from HD video (29.97 fps)
 tar -xf vgaPose3d_stage1.tar # Extract skeletons at VGA framerate
