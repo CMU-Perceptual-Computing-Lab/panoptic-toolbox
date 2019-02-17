@@ -45,7 +45,7 @@ for the full version of [171204_pose1](http://domedb.perception.cs.cmu.edu/17120
 You may find the names of other sequences in our website:
 
 [Browsing dataset](http://domedb.perception.cs.cmu.edu/dataset.html).
-
+[List of release sequences](https://docs.google.com/spreadsheets/d/1eoe74dHRtoMVVFLKCTJkAtF8zqxAnoo2Nt15CYYvHEE/edit?usp=sharing)
 You can also specify the number of videos you want to donwload. 
 ```
 ./scripts/getData.sh (sequenceName) (VGA_Video_Number) (HD_Video_Number)
@@ -58,8 +58,12 @@ For example, the following command will download 240 vga videos and 10 videos.
 
 Note that we have sorted the VGA camera order so that you download uniformly distributed view. 
 
+### 3. List of Sequences
 
-### 3. Extract the images & 3D keypoint data
+You 
+
+
+### 4. Extract the images & 3D keypoint data
 
 This step requires [ffmpeg](https://ffmpeg.org/).
 ```
@@ -77,7 +81,7 @@ tar -xf hdPose3d_stage1.tar # Extract skeletons for HD
 cd ..
 ```
 
-### 4. Run demo programs (Python)
+### 5. Run demo programs (Python)
 This codes require numpy, matplotlib.
 
 
@@ -100,7 +104,7 @@ The result should look like [this](https://github.com/CMU-Perceptual-Computing-L
 
 
 
-### 4. Run demo programs (Matlab)
+### 6. Run demo programs (Matlab)
 
 Note: Matlab code is outdated, and does not handle 3D keypoint outputs (coco19 body, face, hand). 
 Please see this code only for reference. We will update this later.
@@ -110,6 +114,7 @@ Matlab example (outdated):
 >>> cd matlab
 >>> demo
 ```
+
 
 KinopticStudio Toolbox
 ======================
