@@ -22,9 +22,10 @@ for p in 0
 			mkdir -pv $outputvideoFileName
 			echo "Generate Images from $videoFileName"
 			fileName=$(printf "$outputvideoFileName/%02d_%02d_%%08d.${fmt}" $p $c) 
+			echo ffmpeg -i $videoFileName -q:v 1 -f image2 -start_number 0 "$fileName"
 			ffmpeg -i $videoFileName -q:v 1 -f image2 -start_number 0 "$fileName"
-		else
-			echo "$videoFileName (Skipping.)"
+		#else
+			#echo "$videoFileName (Skipping.)"
 		fi
 	done
 done

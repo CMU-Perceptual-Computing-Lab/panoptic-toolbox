@@ -14,7 +14,9 @@ fi
 fmt=${2-jpg}
 
 # Figure out the path of helper scripts
-DIR=$(dirname $(readlink -f $0))
+#DIR=$(dirname $(readlink -f $0))
+COMMAND=$(perl -MCwd -e 'print Cwd::abs_path shift' $0)
+DIR=$(dirname $COMMAND)
 OLDDIR=$PWD
 
 cd $1

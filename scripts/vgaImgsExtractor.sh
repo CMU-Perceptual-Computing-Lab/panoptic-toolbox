@@ -23,8 +23,8 @@ for p in $(seq 1 20)
 			echo "Generate Images from $videoFileName"
 			fileName=$(printf "$outputvideoFileName/%02d_%02d_%%08d.${fmt}" $p $c) 
 			ffmpeg -i $videoFileName -q:v 1 -f image2 -start_number 0 "$fileName"
-		else
-			echo "$videoFileName (Skipping.)"
+		#else
+		#	echo "$videoFileName (Skipping.)"
 		fi
 	done
 done
