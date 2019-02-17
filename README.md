@@ -42,10 +42,8 @@ For example,
 
 for the full version of [171204_pose1](http://domedb.perception.cs.cmu.edu/171204_pose1.html) sequence.
 
-You may find the names of other sequences in our website:
 
-[Browsing dataset](http://domedb.perception.cs.cmu.edu/dataset.html).
-[List of release sequences](https://docs.google.com/spreadsheets/d/1eoe74dHRtoMVVFLKCTJkAtF8zqxAnoo2Nt15CYYvHEE/edit?usp=sharing)
+
 You can also specify the number of videos you want to donwload. 
 ```
 ./scripts/getData.sh (sequenceName) (VGA_Video_Number) (HD_Video_Number)
@@ -58,10 +56,19 @@ For example, the following command will download 240 vga videos and 10 videos.
 
 Note that we have sorted the VGA camera order so that you download uniformly distributed view. 
 
-### 3. List of Sequences
+### 3. List of Available Sequences
 
-You 
+You can find the list of currently available sequences in the following link:
 
+[List of release sequences](https://docs.google.com/spreadsheets/d/1eoe74dHRtoMVVFLKCTJkAtF8zqxAnoo2Nt15CYYvHEE/edit?usp=sharing)
+
+You can see the example videos and other information of each sequence in our website:
+
+[Browsing dataset](http://domedb.perception.cs.cmu.edu/dataset.html).
+
+Check the 3D viewer in each sequence page where you can visualize 3D skeletons in your web browser. For example: 
+
+http://domedb.perception.cs.cmu.edu/171204_pose1.html
 
 ### 4. Extract the images & 3D keypoint data
 
