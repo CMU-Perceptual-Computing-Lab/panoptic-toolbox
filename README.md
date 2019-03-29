@@ -122,6 +122,57 @@ Matlab example (outdated):
 >>> demo
 ```
 
+### Skeleton Output Format
+
+We reconstruct 3D skeleton of people using the method of [Joo et al. 2018](https://ieeexplore.ieee.org/document/8187699).
+
+The output of each frame is written in a json file. For example, 
+
+```
+{ "version": 0.7, 
+"univTime" :53541.542,
+"fpsType" :"hd_29_97",
+"bodies" :
+[
+{ "id": 0,
+"joints19": [-19.4528, -146.612, 1.46159, 0.724274, -40.4564, -163.091, -0.521563, 0.575897, -14.9749, -91.0176, 4.24329, 0.361725, -19.2473, -146.679, -16.1136, 0.643555, -14.7958, -118.804, -20.6738, 0.619599, -22.611, -93.8793, -17.7834, 0.557953, -12.3267, -91.5465, -6.55368, 0.353241, -12.6556, -47.0963, -4.83599, 0.455566, -10.8069, -8.31645, -4.20936, 0.501312, -20.2358, -147.348, 19.1843, 0.628022, -13.1145, -120.269, 28.0371, 0.63559, -20.1037, -94.3607, 30.0809, 0.625916, -17.623, -90.4888, 15.0403, 0.327759, -17.3973, -46.9311, 15.9659, 0.419586, -13.1719, -7.60601, 13.4749, 0.519653, -38.7164, -166.851, -3.25917, 0.46228, -28.7043, -167.333, -7.15903, 0.523224, -39.0433, -166.677, 2.55916, 0.395965, -30.0718, -167.264, 8.18371, 0.510041]
+}
+] }
+```
+Here, each subject has the following values.
+
+**id**: a unique subject index within a sequence. Skeletons with the same id across time represent temporally associated moving skeletons (an individual). However, the same person may have multiple ids if he/she appeared multiple different times (e.g., left the studio and reappeared later).
+
+**joints19**: 19 3D joint locations, formatted as [x1,y1,z1,c1,x2,y2,z2,c2,...] where each c is a per-joint confidence score.
+
+The 3D skeletons have the following keypoint order:
+
+```
+0: Neck
+1: Nose
+2: BodyCenter (center of hips)
+3: lShoulder
+4: lElbow
+5: lWrist,
+6: lHip
+7: lKnee
+8: lAnkle
+9: rShoulder
+10: rElbow
+11: rWrist
+12: rHip
+13: rKnee
+14: rAnkle
+15: rEye
+16: lEye
+17: rEar
+18: lEar
+```
+
+Note that this is different from [OpenPose output order](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md), although our method is based on it. 
+
+Note that we used to use an old format (named mpi15 as described in our [outdated document](http://domedb.perception.cs.cmu.edu/tools.html)), but we do not this format anymore. 
+
 
 KinopticStudio Toolbox
 ======================
