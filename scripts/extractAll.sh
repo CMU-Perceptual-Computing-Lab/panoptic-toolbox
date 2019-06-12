@@ -39,6 +39,10 @@ if [ -f hdHand3d.tar ]; then
 	tar -xf hdHand3d.tar
 fi
 
+if [ -f hdMeshTrack_face.tar ]; then
+	tar -xf hdMeshTrack_face.tar
+fi
+
 # Extract VGA images
 $DIR/vgaImgsExtractor.sh ${fmt}
 

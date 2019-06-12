@@ -90,5 +90,12 @@ if [ ! -f hdHand3d.tar ]; then
 $WGET $mO hdHand3d.tar http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/hdHand3d.tar || rm -v hdHand3d.tar
 fi
 
+
+# 3D Face Fitting Output
+if [ ! -f hdMeshTrack_face.tar ]; then
+$WGET $mO hdMeshTrack_face.tar http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/hdMeshTrack_face.tar || rm -v hdMeshTrack_face.tar 
+fi
+
+
 # Download kinect-rgb videos
 # Download point cloud data

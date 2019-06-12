@@ -1,7 +1,7 @@
 PanopticStudio Toolbox
 ======================
 
-This repository shows how to work with the [Panoptic Studio](http://domedb.perception.cs.cmu.edu) (Panoptic) data.
+This repository has a toolbox to download, process, and visualize the [Panoptic Studio](http://domedb.perception.cs.cmu.edu) (Panoptic) data.
 
 ## Quick start guide
 Follow these steps to set up a simple example:
@@ -32,19 +32,15 @@ This script will create a folder "./171204_pose1_sample" and download the follow
 
 Note that this sample example currently does not have VGA videos.
 
-You can also download any other seqeunce through this script. Just use the the name of the target sequence instead of the "171204_pose1_sample". 
-
-For example, 
+You can also download any other seqeunce through this script. Just use the the name of the target sequence: instead of the "171204_pose1panopticHD". 
+r example, 
 
 ```
 ./scripts/getData.sh 171204_pose1
 ```
 
-for the full version of [171204_pose1](http://domedb.perception.cs.cmu.edu/171204_pose1.html) sequence.
-
-
-
-You can also specify the number of videos you want to donwload. 
+for the full version of [171204_pose1](http://domedb.perception.cs.cmu.edu/171204_pose1.html) sequence:.
+You can also specify the number of videospanopticHDnt to donwload. 
 ```
 ./scripts/getData.sh (sequenceName) (VGA_Video_Number) (HD_Video_Number)
 ```
@@ -56,19 +52,27 @@ For example, the following command will download 240 vga videos and 10 videos.
 
 Note that we have sorted the VGA camera order so that you download uniformly distributed view. 
 
-### 3. List of Available Sequences
+### 3. Downloading All Available Sequences
 
 You can find the list of currently available sequences in the following link:
 
-[List of release sequences](https://docs.google.com/spreadsheets/d/1eoe74dHRtoMVVFLKCTJkAtF8zqxAnoo2Nt15CYYvHEE/edit?usp=sharing)
+[List of released sequences (ver1.2)](https://docs.google.com/spreadsheets/d/1eoe74dHRtoMVVFLKCTJkAtF8zqxAnoo2Nt15CYYvHEE/edit#gid=1333444170)
 
-You can see the example videos and other information of each sequence in our website:
+Downloading all of them (including videos) may take a long time, but downloading 3D keypoint files (body+face+hand upon their availability) should be "relatively" quick. 
 
-[Browsing dataset](http://domedb.perception.cs.cmu.edu/dataset.html).
+You can use the following script to download currently available sequences (ver 1.0):
+```
+./scripts/getDB_panopticHD_ver1_2.sh
+```
 
-Check the 3D viewer in each sequence page where you can visualize 3D skeletons in your web browser. For example: 
+The default setting is not downloading any videos. Feel free to change the "vgaVideoNum" and "hdVideoNum" in the script to other numbers if you also want to download videos. 
 
-http://domedb.perception.cs.cmu.edu/171204_pose1.html
+
+You can see the example videos and other information of each sequence: in our website:
+[Browsing dataset](http://domedb.perception.cs.cmupanopticHDtaset.html).
+
+Check the 3D viewer in each sequence: page where you can visualize 3D skeletons in your web browser. For example: 
+http://domedb.perception.cs.cmu.edu/panopticHDpose1.html
 
 ### 4. Extract the images & 3D keypoint data
 
@@ -141,9 +145,7 @@ The output of each frame is written in a json file. For example,
 ```
 Here, each subject has the following values.
 
-**id**: a unique subject index within a sequence. Skeletons with the same id across time represent temporally associated moving skeletons (an individual). However, the same person may have multiple ids if he/she appeared multiple different times (e.g., left the studio and reappeared later).
-
-**joints19**: 19 3D joint locations, formatted as [x1,y1,z1,c1,x2,y2,z2,c2,...] where each c is a per-joint confidence score.
+**id**: a unique subject index within a sequence:. Skeletons with the same id across time represent temporally associated moving skeletons (an individual). However, the same person may have multiple ids **joints19**: 19 3D joint locations, formatted as [x1,y1,z1,c1,x2,y2,z2,c2,...] where each c ispanopticHDjoint confidence score.
 
 The 3D skeletons have the following keypoint order:
 
@@ -189,10 +191,9 @@ Follow these steps to set up a simple example:
 
 ### 1. Download a data
 
-Assuming you want to donwload a sequence named "160422_haggling1"
-
-```
-./scripts/getData_kinoptic.sh 160422_haggling1
+Assuming you want to donwload a sequence: named "160422_haggling1"
+`
+./scripts/getDpanopticHDoptic.sh 160422_haggling1
 ```
 
 This script will download the following files. 
