@@ -60,7 +60,7 @@ You can find the list of currently available sequences in the following link:
 
 Downloading all of them (including videos) may take a long time, but downloading 3D keypoint files (body+face+hand upon their availability) should be "relatively" quick. 
 
-You can use the following script to download currently available sequences (ver 1.0):
+You can use the following script to download currently available sequences (ver 1.2):
 ```
 ./scripts/getDB_panopticHD_ver1_2.sh
 ```
