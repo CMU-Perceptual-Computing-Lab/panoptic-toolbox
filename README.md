@@ -165,10 +165,10 @@ The 3D skeletons have the following keypoint order:
 12: rHip
 13: rKnee
 14: rAnkle
-15: rEye
-16: lEye
-17: rEar
-18: lEar
+15: lEye
+16: lEar
+17: rEye
+18: rEar
 ```
 
 Note that this is different from [OpenPose output order](https://github.com/CMU-Perceptual-Computing-Lab/openpose/blob/master/doc/output.md), although our method is based on it. 
