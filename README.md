@@ -2,8 +2,9 @@
 
 This repository has a toolbox to download, process, and visualize the [Panoptic Studio](http://domedb.perception.cs.cmu.edu) (Panoptic) data.
 
-# Note (Sep-21-2020):
-Currently our server is offline due to the power outage in the CMU Campus, and COVID-19 makes it difficult to access the server room. We will fix the issue as soon as possible. 
+# Note:
+ - Sep-21-2020: Currently our server is offline due to the power outage in the CMU Campus, and COVID-19 makes it difficult to access the server room. We will fix the issue as soon as possible. 
+ - Sep-30-2020: Unfortunately, we found that our server has been broken and we are replacing it now. Please wait a couple of more weeks. 
 
 
 # Quick start guide
