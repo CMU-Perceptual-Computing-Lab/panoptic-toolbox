@@ -5,7 +5,8 @@ This repository has a toolbox to download, process, and visualize the [Panoptic 
 # Note:
  - <del> Sep-21-2020: Currently our server is offline due to the power outage in the CMU Campus, and COVID-19 makes it difficult to access the server room. We will fix the issue as soon as possible.</del> 
  - <del> Sep-30-2020: Unfortunately, we found that our server has been broken and we are replacing it now. Please wait a couple of more weeks.</del> 
- - Oct-5-2020: Our server is back and online now!  
+ - <del> Oct-5-2020: Our server is back and online now!  </del>
+ - May-18-2021: Currently our server is offline due to our server maintenance. Hopefully it will be back online in this week. </del> 
 
 
 # Quick start guide
