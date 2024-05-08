@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script downloads videos for a specific sequence:
-# ./getData.sh [sequenceName] [numVGAViews] [numHDViews]
+# ./getData.sh [sequenceName] [numKinectViews] --snu-endpoint (optional)
 #
 # e.g., to download 10 VGA camera views for the "sampleData" sequence:
 # ./getData.sh sampleData 10 0
@@ -9,6 +9,22 @@
 
 datasetName=${1-sampleData}
 numKinectViews=${2-10} #Specify the number of vga views you want to donwload. Up to 480
+endpoint="http://domedb.perception.cs.cmu.edu"
+
+while [[ -n "$1" ]]; do
+  case "$1" in
+    --snu-endpoint)
+      endpoint="http://vcl.snu.ac.kr/panoptic"
+      ;;
+    -*)
+      echo "Error: Unknown option $1" >&2
+      print_usage
+      exit 1
+      ;;
+    *)
+  esac
+  shift
+done
 
 # Select wget or curl, with appropriate options
 if command -v wget >/dev/null 2>&1; then 
@@ -28,14 +44,14 @@ mkdir $datasetName
 cd $datasetName
 
 # Download panoptic calibration data
-$WGET $mO calibration_${datasetName}.json http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/calibration_${datasetName}.json
+$WGET $mO calibration_${datasetName}.json $endpoint/webdata/dataset/$datasetName/calibration_${datasetName}.json
 
 # Download kcalibration data
-$WGET $mO kcalibration_${datasetName}.json http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/kinect_shared_depth/kcalibration_${datasetName}.json
+$WGET $mO kcalibration_${datasetName}.json $endpoint/webdata/dataset/$datasetName/kinect_shared_depth/kcalibration_${datasetName}.json
 
 # Download synctabls data
-$WGET $mO synctables_${datasetName}.json http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/kinect_shared_depth/synctables.json
-$WGET $mO ksynctables_${datasetName}.json http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/kinect_shared_depth/ksynctables.json
+$WGET $mO synctables_${datasetName}.json $endpoint/webdata/dataset/$datasetName/kinect_shared_depth/synctables.json
+$WGET $mO ksynctables_${datasetName}.json $endpoint/webdata/dataset/$datasetName/kinect_shared_depth/ksynctables.json
 
 
 #####################
@@ -49,8 +65,8 @@ do
   fileName=$(printf "kinectVideos/kinect_%02d_%02d.mp4" ${panel} ${nodes[c]})
   echo $fileName;
   #Download and delete if the file is blank
-	#cmd=$(printf "$WGET $mO kinectVideos/kinect_%02d_%02d.mp4 http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/videos/kinect_shared_crf0/${datasetName}_kinect%d.mp4 || rm -v $fileName" ${panel} ${nodes[c]} ${nodes[c]})
-	cmd=$(printf "$WGET $mO kinectVideos/kinect_%02d_%02d.mp4 http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/videos/kinect_shared_crf20/${datasetName}_kinect%d.mp4 || rm -v $fileName" ${panel} ${nodes[c]} ${nodes[c]})
+	#cmd=$(printf "$WGET $mO kinectVideos/kinect_%02d_%02d.mp4 $endpoint/webdata/dataset/$datasetName/videos/kinect_shared_crf0/${datasetName}_kinect%d.mp4 || rm -v $fileName" ${panel} ${nodes[c]} ${nodes[c]})
+	cmd=$(printf "$WGET $mO kinectVideos/kinect_%02d_%02d.mp4 $endpoint/webdata/dataset/$datasetName/videos/kinect_shared_crf20/${datasetName}_kinect%d.mp4 || rm -v $fileName" ${panel} ${nodes[c]} ${nodes[c]})
 	echo $cmd
 	eval $cmd
 done
@@ -67,7 +83,7 @@ do
   fileName=$(printf "kinect_shared_depth/KINECTNODE%d/depthdata.dat" ${nodes[c]})
   echo $fileName;
   #Download and delete if the file is blank
-	cmd=$(printf "$WGET $mO $fileName http://domedb.perception.cs.cmu.edu/webdata/dataset/$datasetName/$fileName || rm -v $fileName")
+	cmd=$(printf "$WGET $mO $fileName $endpoint/webdata/dataset/$datasetName/$fileName || rm -v $fileName")
 	echo $cmd
 	eval $cmd
 done

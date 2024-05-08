@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script downloads videos for a specific sequence:
-# ./getData.sh [sequenceName] [numVGAViews] [numHDViews]
+# ./getData.sh [sequenceName] [numVGAViews] [numHDViews] --snu-endpoint (optional)
 #
 # e.g., to download 10 VGA camera views for the "sampleData" sequence:
 # ./getData.sh sampleData 10 0
